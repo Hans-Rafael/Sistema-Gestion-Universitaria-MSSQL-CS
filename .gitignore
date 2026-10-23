@@ -69,3 +69,4 @@ Testing/
 .vs/
 bin/
 obj/
+.claude/
