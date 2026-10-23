@@ -197,10 +197,29 @@ namespace Sistema_Gestion_universitaria
                 // ExecuteNonQuery se usa cuando la consulta NO devuelve filas (INSERT, UPDATE, DELETE).
                 cmd.ExecuteNonQuery();
             }
+            catch (SqlException ex)
+            {
+                // SqlException es el error que devuelve SQL Server; ex.Number es su codigo.
+                // Asi se muestra un mensaje en español en vez del texto tecnico en ingles.
+                if (ex.Number == 2627 || ex.Number == 2601)
+                {
+                    // 2627 / 2601: clave repetida. La clave de alumno_materia es (id_alumno, id_materia).
+                    MessageBox.Show("Ese alumno ya está inscripto en esa materia.");
+                }
+                else if (ex.Number == 547)
+                {
+                    // 547: el alumno, la materia o el estado no existen en sus tablas (clave foranea).
+                    MessageBox.Show("El alumno, la materia o el estado elegido no existe en la base de datos.");
+                }
+                else
+                {
+                    // Cualquier otro error de la base: se muestra el numero para poder buscarlo.
+                    MessageBox.Show("No se pudo registrar la inscripción (error " + ex.Number + "): " + ex.Message);
+                }
+            }
             catch (Exception ex)
             {
-                // Si el alumno ya esta inscripto en esa materia, la base lo rechaza (clave repetida)
-                // y el mensaje aparece aca.
+                // Errores que no son de la base (por ejemplo, no se pudo abrir la conexion).
                 MessageBox.Show("Error al registrar: " + ex.Message);
             }
             finally
