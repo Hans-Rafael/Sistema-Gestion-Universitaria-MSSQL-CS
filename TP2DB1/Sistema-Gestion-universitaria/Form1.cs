@@ -277,5 +277,10 @@ namespace Sistema_Gestion_universitaria
         {
 
         }
+
+        private void dgvMaterias_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
