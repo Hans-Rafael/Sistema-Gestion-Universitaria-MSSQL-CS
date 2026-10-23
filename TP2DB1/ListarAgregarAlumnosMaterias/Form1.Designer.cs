@@ -45,7 +45,7 @@
             this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAlumnos.Size = new System.Drawing.Size(730, 120);
             this.dgvAlumnos.TabIndex = 0;
-            this.dgvAlumnos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvAlumnos_MouseDoubleClick);
+            this.dgvAlumnos.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAlumnos_CellMouseDoubleClick);
             // 
             // dgvMaterias
             // 

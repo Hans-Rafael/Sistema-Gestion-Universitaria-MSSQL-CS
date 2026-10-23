@@ -16,7 +16,7 @@ namespace ListarAgregarAlumnosMaterias
             "SELECT id_materia, nombre_materia, creditos, id_carrera, id_profesor FROM materia";
 
         private const string SqlEstados =
-            "SELECT id_estado, descripcion FROM estado_academico";
+            "SELECT id_estado, descripcion FROM estado_academico ORDER BY id_estado";
 
         private const string SqlAlumnoMateria =
             @"SELECT am.id_alumno, a.nombre + ' ' + a.apellido AS alumno,
@@ -72,6 +72,7 @@ namespace ListarAgregarAlumnosMaterias
             cmbEstado.DisplayMember = "descripcion";
             cmbEstado.ValueMember = "id_estado";
             cmbEstado.DataSource = Conexion.Listar(SqlEstados);
+            cmbEstado.SelectedIndex = -1;
         }
 
         private void CargarAlumnoMateria()
@@ -79,11 +80,11 @@ namespace ListarAgregarAlumnosMaterias
             dgvAlumnoMateria.DataSource = Conexion.Listar(SqlAlumnoMateria);
         }
 
-        private void dgvAlumnos_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void dgvAlumnos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            var fila = dgvAlumnos.CurrentRow;
-            if (fila == null) return;
+            if (e.RowIndex < 0) return;
 
+            var fila = dgvAlumnos.Rows[e.RowIndex];
             idAlumno = Convert.ToInt32(fila.Cells["id_alumno"].Value);
             txtAlumno.Text = $"{fila.Cells["nombre"].Value} {fila.Cells["apellido"].Value}";
         }
@@ -105,6 +106,12 @@ namespace ListarAgregarAlumnosMaterias
                 return;
             }
 
+            if (cmbEstado.SelectedValue == null)
+            {
+                MessageBox.Show("Seleccione un estado académico.");
+                return;
+            }
+
             registrarAlumnoMateria();
         }
 
@@ -117,17 +124,26 @@ namespace ListarAgregarAlumnosMaterias
                     new SqlParameter("@materia", SqlDbType.Int) { Value = idMateria },
                     new SqlParameter("@fecha", SqlDbType.Date) { Value = DateTime.Today },
                     new SqlParameter("@estado", SqlDbType.Int) { Value = cmbEstado.SelectedValue });
-
-                CargarAlumnoMateria();
-                MessageBox.Show("Alumno registrado en la materia.");
             }
             catch (SqlException ex) when (ex.Number == ErrorClaveDuplicada)
             {
                 MessageBox.Show("Ese alumno ya está inscripto en esa materia.");
+                return;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al registrar: " + ex.Message);
+                return;
+            }
+
+            try
+            {
+                CargarAlumnoMateria();
+                MessageBox.Show("Alumno registrado en la materia.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Alumno registrado, pero no se pudo actualizar la lista de inscripciones: " + ex.Message);
             }
         }
 
