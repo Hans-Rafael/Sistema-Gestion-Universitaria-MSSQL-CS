@@ -39,7 +39,7 @@ namespace Sistema_Gestion_universitaria
         // (nombre del metodo, la consulta SQL y la grilla donde se muestra).
         private void listarEstudiantes()
         {
-            
+
             SqlConnection conn = null;
 
             try
@@ -101,7 +101,7 @@ namespace Sistema_Gestion_universitaria
             try
             {
                 conn = Conexion.abrirConn();
-                
+
                 string query = @"
                     SELECT
                         am.fecha_inscripcion as FECHA,
@@ -150,6 +150,16 @@ namespace Sistema_Gestion_universitaria
                 return; // corta el metodo: no se inserta nada
             }
 
+            //Confirmacion antes de registrar
+            DialogResult respuesta = MessageBox.Show( "¿Querés registrar a " + txtAlumno.Text + " en " + txtMateria.Text + "?",   // el mensaje
+            "Confirmar inscripción",                                                      // el título de la ventana
+            MessageBoxButtons.YesNo,                                                      // botones Sí / No
+            MessageBoxIcon.Question);                                                     // ícono de pregunta
+
+            if (respuesta == DialogResult.No)
+            {
+                return;   // salió "No": se corta y no se inserta nada
+            }
             registrarAlumnoMateria();   // 1. guarda la inscripcion en la base
             listarAlumnosPorMateria();  // 2. vuelve a leer la grilla para mostrar la fila nueva
         }
@@ -196,6 +206,8 @@ namespace Sistema_Gestion_universitaria
 
                 // ExecuteNonQuery se usa cuando la consulta NO devuelve filas (INSERT, UPDATE, DELETE).
                 cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Registro generado correctamente.");
             }
             catch (SqlException ex)
             {
@@ -230,7 +242,7 @@ namespace Sistema_Gestion_universitaria
 
         private void dgvMaterias_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
+
             if (e.RowIndex >= 0) // Evita que se haga click en el encabezado de la grilla.
             {
                 DataGridViewRow fila = dgvMaterias.Rows[e.RowIndex];
@@ -241,7 +253,7 @@ namespace Sistema_Gestion_universitaria
 
         private void dgvAlumnos_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-          
+
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow fila = dgvAlumnos.Rows[e.RowIndex];
@@ -257,6 +269,11 @@ namespace Sistema_Gestion_universitaria
         }
 
         private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblAlumnos_Click(object sender, EventArgs e)
         {
 
         }
