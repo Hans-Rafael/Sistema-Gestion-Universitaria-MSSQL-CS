@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ListarAgregarAlumnosMaterias
+namespace Sistema_Gestion_universitaria
 {
     internal static class Program
     {

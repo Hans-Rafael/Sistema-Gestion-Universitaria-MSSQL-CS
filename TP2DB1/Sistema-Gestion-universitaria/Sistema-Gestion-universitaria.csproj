@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E225A296-B279-4D41-A526-AE1857FFD6B1}</ProjectGuid>
+    <ProjectGuid>{FA23F0E4-3DCA-45F9-9919-A8A0383FB34E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>ListarAgregarAlumnosMaterias</RootNamespace>
-    <AssemblyName>ListarAgregarAlumnosMaterias</AssemblyName>
+    <RootNamespace>Sistema_Gestion_universitaria</RootNamespace>
+    <AssemblyName>Sistema-Gestion-universitaria</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -34,7 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -53,7 +52,6 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Conexion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

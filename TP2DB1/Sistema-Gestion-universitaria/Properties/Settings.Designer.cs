@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ListarAgregarAlumnosMaterias.Properties
+namespace Sistema_Gestion_universitaria.Properties
 {
 
 

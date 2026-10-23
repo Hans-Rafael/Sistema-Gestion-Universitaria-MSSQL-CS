@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ListarAgregarAlumnosMaterias.Properties
+namespace Sistema_Gestion_universitaria.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace ListarAgregarAlumnosMaterias.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ListarAgregarAlumnosMaterias.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sistema_Gestion_universitaria.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
