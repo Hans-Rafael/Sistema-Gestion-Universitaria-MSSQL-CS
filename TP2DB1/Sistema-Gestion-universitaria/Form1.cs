@@ -249,7 +249,16 @@ namespace Sistema_Gestion_universitaria
                 idAlumnoSeleccionado = Convert.ToInt32(fila.Cells["id_alumno"].Value);
 
             }
-        }   
+        }
 
+        private void lblDiaHoy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblEstado_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

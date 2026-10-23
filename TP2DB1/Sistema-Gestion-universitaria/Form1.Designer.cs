@@ -28,6 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvAlumnos = new System.Windows.Forms.DataGridView();
             this.dgvMaterias = new System.Windows.Forms.DataGridView();
             this.dgvAlumnoMateria = new System.Windows.Forms.DataGridView();
@@ -50,8 +56,27 @@
             // dgvAlumnos
             // 
             this.dgvAlumnos.AllowUserToAddRows = false;
+            this.dgvAlumnos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlumnos.Location = new System.Drawing.Point(45, 27);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAlumnos.Location = new System.Drawing.Point(35, 27);
             this.dgvAlumnos.Name = "dgvAlumnos";
             this.dgvAlumnos.ReadOnly = true;
             this.dgvAlumnos.Size = new System.Drawing.Size(607, 150);
@@ -61,7 +86,24 @@
             // dgvMaterias
             // 
             this.dgvMaterias.AllowUserToAddRows = false;
+            this.dgvMaterias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMaterias.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvMaterias.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvMaterias.Location = new System.Drawing.Point(707, 27);
             this.dgvMaterias.Name = "dgvMaterias";
             this.dgvMaterias.ReadOnly = true;
@@ -72,25 +114,46 @@
             // dgvAlumnoMateria
             // 
             this.dgvAlumnoMateria.AllowUserToAddRows = false;
+            this.dgvAlumnoMateria.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAlumnoMateria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnoMateria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvAlumnoMateria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlumnoMateria.Location = new System.Drawing.Point(35, 266);
             this.dgvAlumnoMateria.Name = "dgvAlumnoMateria";
             this.dgvAlumnoMateria.ReadOnly = true;
-            this.dgvAlumnoMateria.Size = new System.Drawing.Size(505, 150);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAlumnoMateria.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAlumnoMateria.Size = new System.Drawing.Size(607, 150);
             this.dgvAlumnoMateria.TabIndex = 2;
             // 
             // txtAlumno
             // 
-            this.txtAlumno.Location = new System.Drawing.Point(87, 219);
+            this.txtAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAlumno.Location = new System.Drawing.Point(107, 212);
             this.txtAlumno.Name = "txtAlumno";
-            this.txtAlumno.Size = new System.Drawing.Size(100, 20);
+            this.txtAlumno.Size = new System.Drawing.Size(140, 22);
             this.txtAlumno.TabIndex = 4;
             // 
             // txtMateria
             // 
-            this.txtMateria.Location = new System.Drawing.Point(297, 221);
+            this.txtMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMateria.Location = new System.Drawing.Point(364, 216);
             this.txtMateria.Name = "txtMateria";
-            this.txtMateria.Size = new System.Drawing.Size(100, 20);
+            this.txtMateria.Size = new System.Drawing.Size(140, 22);
             this.txtMateria.TabIndex = 5;
             // 
             // cboEstado
@@ -101,16 +164,17 @@
             "Aprobado",
             "Regular",
             "Desaprobado"});
-            this.cboEstado.Location = new System.Drawing.Point(531, 221);
+            this.cboEstado.Location = new System.Drawing.Point(618, 217);
             this.cboEstado.Name = "cboEstado";
-            this.cboEstado.Size = new System.Drawing.Size(121, 21);
+            this.cboEstado.Size = new System.Drawing.Size(125, 21);
             this.cboEstado.TabIndex = 6;
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(687, 221);
+            this.btnRegistrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrar.Location = new System.Drawing.Point(847, 213);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(108, 23);
+            this.btnRegistrar.Size = new System.Drawing.Size(140, 40);
             this.btnRegistrar.TabIndex = 7;
             this.btnRegistrar.Text = "Registrar Alumno";
             this.btnRegistrar.UseVisualStyleBackColor = true;
@@ -119,66 +183,74 @@
             // lblAlumnoMateria
             // 
             this.lblAlumnoMateria.AutoSize = true;
-            this.lblAlumnoMateria.Location = new System.Drawing.Point(84, 250);
+            this.lblAlumnoMateria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumnoMateria.Location = new System.Drawing.Point(64, 247);
             this.lblAlumnoMateria.Name = "lblAlumnoMateria";
-            this.lblAlumnoMateria.Size = new System.Drawing.Size(151, 13);
+            this.lblAlumnoMateria.Size = new System.Drawing.Size(219, 16);
             this.lblAlumnoMateria.TabIndex = 8;
             this.lblAlumnoMateria.Text = "Alumnos Anotados por Materia";
             // 
             // lblAlumnos
             // 
             this.lblAlumnos.AutoSize = true;
+            this.lblAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAlumnos.Location = new System.Drawing.Point(64, 9);
             this.lblAlumnos.Name = "lblAlumnos";
-            this.lblAlumnos.Size = new System.Drawing.Size(47, 13);
+            this.lblAlumnos.Size = new System.Drawing.Size(66, 16);
             this.lblAlumnos.TabIndex = 9;
             this.lblAlumnos.Text = "Alumnos";
             // 
             // lblMaterias
             // 
             this.lblMaterias.AutoSize = true;
-            this.lblMaterias.Location = new System.Drawing.Point(957, 11);
+            this.lblMaterias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMaterias.Location = new System.Drawing.Point(719, 6);
             this.lblMaterias.Name = "lblMaterias";
-            this.lblMaterias.Size = new System.Drawing.Size(47, 13);
+            this.lblMaterias.Size = new System.Drawing.Size(67, 16);
             this.lblMaterias.TabIndex = 10;
             this.lblMaterias.Text = "Materias";
             // 
             // lblDiaHoy
             // 
             this.lblDiaHoy.AutoSize = true;
-            this.lblDiaHoy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiaHoy.Location = new System.Drawing.Point(844, 219);
+            this.lblDiaHoy.Font = new System.Drawing.Font("Times New Roman", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDiaHoy.Location = new System.Drawing.Point(1012, 224);
             this.lblDiaHoy.Name = "lblDiaHoy";
-            this.lblDiaHoy.Size = new System.Drawing.Size(91, 16);
+            this.lblDiaHoy.Size = new System.Drawing.Size(86, 18);
             this.lblDiaHoy.TabIndex = 11;
             this.lblDiaHoy.Text = "dd/MM/yyyy";
+            this.lblDiaHoy.Click += new System.EventHandler(this.lblDiaHoy_Click);
             // 
             // lblAlumno
             // 
             this.lblAlumno.AutoSize = true;
-            this.lblAlumno.Location = new System.Drawing.Point(84, 203);
+            this.lblAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAlumno.Location = new System.Drawing.Point(32, 213);
             this.lblAlumno.Name = "lblAlumno";
-            this.lblAlumno.Size = new System.Drawing.Size(45, 13);
+            this.lblAlumno.Size = new System.Drawing.Size(69, 18);
             this.lblAlumno.TabIndex = 11;
             this.lblAlumno.Text = "Alumno:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(294, 205);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(289, 216);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(69, 18);
             this.label5.TabIndex = 12;
             this.label5.Text = "Materia:";
             // 
             // lblEstado
             // 
             this.lblEstado.AutoSize = true;
-            this.lblEstado.Location = new System.Drawing.Point(528, 205);
+            this.lblEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEstado.Location = new System.Drawing.Point(533, 220);
             this.lblEstado.Name = "lblEstado";
-            this.lblEstado.Size = new System.Drawing.Size(43, 13);
+            this.lblEstado.Size = new System.Drawing.Size(66, 18);
             this.lblEstado.TabIndex = 13;
             this.lblEstado.Text = "Estado:";
+            this.lblEstado.Click += new System.EventHandler(this.lblEstado_Click);
             // 
             // Form1
             // 
