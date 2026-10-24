@@ -1,44 +1,59 @@
 # Sistema de Gestión Universitaria
 
-Sistema de gestión universitaria desarrollado en C# con .NET Framework 4.8, utilizando WinForms y Microsoft SQL Server. El proyecto permite gestionar alumnos, materias, inscripción académica y estados de cursado a través de una interfaz gráfica simple y funcional.
+<div align="center">
 
-## Descripción
+![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=csharp&logoColor=white)
+![.NET 4.8](https://img.shields.io/badge/.NET-4.8-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![WinForms](https://img.shields.io/badge/WinForms-Application-0078D4?style=for-the-badge)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)
+![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-Esta aplicación está pensada como una solución de administración académica para una universidad o institución educativa. Incluye una base de datos relacional con entidades como:
+</div>
 
-- Alumnos
-- Profesores
-- Carreras
-- Materias
-- Inscripciones de alumnos a materias
-- Estados académicos
-- Accesos por tipo de usuario
-- Documentación de alumnos
+Sistema de gestión universitaria desarrollado en C# con Microsoft .NET Framework 4.8, utilizando WinForms y conexión a una base de datos SQL Server. Este proyecto fue realizado como Trabajo Práctico N°2 para el manejo de alumnos y materias, con la posibilidad de listar registros, seleccionar datos desde grillas y registrar inscripciones.
 
-La lógica de acceso a datos está separada en una clase `Conexion`, y la interfaz principal está desarrollada en `Form1` usando WinForms.
+## Descripción general
 
-## Tecnologías
+La aplicación permite administrar la relación entre alumnos y materias dentro de una universidad. A través de una interfaz gráfica, el usuario puede:
+
+- listar alumnos
+- listar materias
+- visualizar alumnos inscriptos por materia
+- seleccionar un alumno y una materia desde las grillas
+- cargar los datos en los `TextBox`
+- registrar la inscripción en la base de datos
+- actualizar la grilla de registros
+- manejar errores de la base de datos con mensajes visibles
+
+## Objetivos del trabajo práctico
+
+1. Conectarse a la base de datos `GestionUniversitaria` mediante una clase estática `Conexion`.
+2. Listar las tablas `alumno`, `materia` y `alumno_materia` al cargar el formulario.
+3. Cargar los `TextBox` `txtAlumno` y `txtMateria` con datos de la grilla.
+4. Guardar los IDs seleccionados en variables globales.
+5. Registrar la inscripción del alumno en la materia usando el evento `btnRegistrar_Click`.
+6. Actualizar la grilla de alumnos por materia luego del alta.
+
+## Tecnologías empleadas
 
 - C#
 - .NET Framework 4.8
 - WinForms
-- SQL Server / SQL Server Express
-- ADO.NET `SqlConnection`, `SqlCommand`, `SqlDataReader`
-- SQL Server Management Studio / scripts SQL
+- SQL Server
+- ADO.NET
+- `SqlConnection`
+- `SqlCommand`
+- `SqlDataReader`
 
 ## Funcionalidades principales
 
-- Listado de estudiantes
-- Listado de materias
-- Visualización de alumnos por materia
-- Inscripción de alumnos a materias
-- Carga de estado académico:
-  - Aprobado
-  - Regular
-  - Desaprobado
-- Validación de datos antes de registrar información
-- Manejo de errores con mensajes amigables para el usuario
-- Conexión a base de datos mediante `App.config`
+- Carga inicial de tablas al abrir la aplicación.
+- Doble clic sobre una fila de `dgvAlumnos` para seleccionar un alumno.
+- Doble clic sobre una fila de `dgvMaterias` para seleccionar una materia.
+- Validación antes de registrar la inscripción.
+- Confirmación antes de guardar.
+- Manejo de errores de SQL Server.
+- Actualización automática de la grilla principal de inscripciones.
 
 ## Estructura del proyecto
 
@@ -59,48 +74,38 @@ Sistema-Gestion-Universitaria-MSSQL-CS/
 ├── .gitignore
 ├── LICENSE
 ├── README.md
-└── TP2DB1.slnx
+├── TP2DB1.slnx
+└── .gitattributes
 ```
 
 ## Base de datos
 
-La base de datos se encuentra en `Database/script_inicial.sql`.
+El proyecto utiliza la base de datos:
 
-Ese script crea la base de datos `GestionUniversitaria` y las tablas principales del sistema:
+```sql
+GestionUniversitaria
+```
+
+El script SQL con la creación de la base y las tablas está en:
+
+```text
+Database/script_inicial.sql
+```
+
+Las principales tablas del sistema son:
 
 - `alumno`
-- `profesor`
-- `carrera`
 - `materia`
+- `carrera`
+- `profesor`
 - `alumno_materia`
-- `alumno_materia_notas`
 - `estado_academico`
 - `tipo_acceso`
-- `acceso_alumno`
-- `acceso_profesores`
-- `acceso_administrador`
 - `documentacion_alumno`
 
-El script incluye:
+## Configuración de conexión
 
-- creación de la base de datos
-- creación de tablas
-- claves primarias y foráneas
-- restricciones y checks
-- valores por defecto
-
-## Requisitos previos
-
-Antes de ejecutar la aplicación debes tener instalado:
-
-- Visual Studio 2019 o superior
-- .NET Framework 4.8
-- SQL Server Express o SQL Server local
-- acceso a una instancia con SQL Server disponible
-
-## Configuración de la conexión
-
-El archivo `TP2DB1/Sistema-Gestion-universitaria/App.config` contiene la cadena de conexión:
+La conexión a SQL Server está definida en `App.config`:
 
 ```xml
 <connectionStrings>
@@ -110,64 +115,63 @@ El archivo `TP2DB1/Sistema-Gestion-universitaria/App.config` contiene la cadena 
 </connectionStrings>
 ```
 
-Asegúrate de que:
+Si la instancia de SQL Server no es `SQLEXPRESS`, deberás modificar el valor de `Server` según tu entorno local.
 
-- el nombre de la base sea `GestionUniversitaria`
-- la instancia de SQL Server sea accesible
-- el usuario del sistema tenga permisos para conectarse
-- si usás otra instancia, actualizá `Server=...`
+## Requisitos previos
 
-## Instalación y ejecución
+Antes de ejecutar el proyecto, verificá que tengas instalado:
 
-1. Cloná el repositorio:
+- Visual Studio 2019 o superior
+- .NET Framework 4.8
+- SQL Server Express o SQL Server local
+- permisos para crear o acceder a la base `GestionUniversitaria`
 
-```bash
-git clone https://github.com/Hans-Rafael/Sistema-Gestion-Universitaria-MSSQL-CS.git
-```
+## Instrucciones de ejecución
 
-2. Abrí la solución `TP2DB1.slnx` o el proyecto `Sistema-Gestion-universitaria.csproj` en Visual Studio.
-
-3. Ejecutá el script SQL ubicado en:
-
-```text
-Database/script_inicial.sql
-```
-
-4. Verificá que la base `GestionUniversitaria` exista en SQL Server.
-
-5. Compilá y ejecutá la aplicación desde Visual Studio.
+1. Cloná el repositorio.
+2. Abrí la solución o el proyecto en Visual Studio.
+3. Ejecutá el script ubicado en `Database/script_inicial.sql` para crear la base de datos.
+4. Verificá que exista la base `GestionUniversitaria`.
+5. Compilá y ejecutá la aplicación.
+6. En la interfaz, seleccioná un alumno y una materia con doble clic.
+7. Presioná el botón de registrar para agregar la inscripción.
 
 ## Flujo de uso
 
-1. La aplicación carga automáticamente los alumnos y las materias al iniciar.
-2. El usuario selecciona un alumno y una materia haciendo doble clic sobre las grillas.
-3. Se elige el estado académico.
+1. Al abrir la aplicación, se cargan los alumnos y materias.
+2. Se hace doble clic en la grilla de alumnos para cargar el `TextBox` correspondiente.
+3. Se hace doble clic en la grilla de materias para cargar el `TextBox` correspondiente.
 4. Se confirma la inscripción.
-5. El sistema registra la relación en la tabla `alumno_materia`.
-6. La vista de alumnos por materia se actualiza para reflejar el cambio.
+5. El sistema guarda la tupla `alumno + materia + fecha + estado` en la base de datos.
+6. La grilla de alumnos por materia se actualiza.
 
-## Archivos importantes
+## Archivos principales
 
-- `Conexion.cs`: encapsula la conexión a SQL Server
-- `Form1.cs`: lógica principal de la interfaz y operaciones CRUD/consultas
-- `Program.cs`: punto de entrada de la aplicación
-- `Database/script_inicial.sql`: definición completa de la base de datos
-- `App.config`: configuración del acceso a datos
+- `TP2DB1/Sistema-Gestion-universitaria/Conexion.cs` → lógica de conexión con SQL Server.
+- `TP2DB1/Sistema-Gestion-universitaria/Form1.cs` → lógica principal de la interfaz y operaciones de base de datos.
+- `TP2DB1/Sistema-Gestion-universitaria/Program.cs` → punto de entrada de la aplicación.
+- `TP2DB1/Sistema-Gestion-universitaria/App.config` → configuración de la conexión.
+- `Database/script_inicial.sql` → script de la base de datos.
 
-## Notas de desarrollo
+## Capturas de pantalla recomendadas
 
-El proyecto sigue una estructura sencilla basada en WinForms y acceso directo a base de datos con ADO.NET. Aunque la aplicación aún se encuentra en una fase inicial, representa una base sólida para ampliar funciones como:
+Se recomienda guardar 3 imágenes en una carpeta `docs/screenshots/` con estos nombres:
 
-- gestión de profesores
-- carga de notas
-- cumplimiento documental
-- autenticación de usuarios
-- reportes y consultas avanzadas
-- arquitectura por capas / patrón repositorio
+```text
+docs/screenshots/01-carga-inicial.png
+docs/screenshots/02-seleccion-alumno-materia.png
+docs/screenshots/03-error-validacion.png
+```
+
+Descripción:
+
+- `01-carga-inicial.png`: aplicación abriéndose y cargando alumnos y materias.
+- `02-seleccion-alumno-materia.png`: doble clic en alumno y materia para cargar los `TextBox`.
+- `03-error-validacion.png`: popup con un error de validación o conexión.
 
 ## Licencia
 
-Este proyecto está licenciado bajo la licencia MIT. Consulta el archivo `LICENSE` para más información.
+Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más información.
 
 ## Autor
 
@@ -175,15 +179,4 @@ Hans-Rafael
 
 ## Estado del proyecto
 
-Proyecto académico / demostrativo de gestión universitaria con SQL Server y C#.
-
----
-
-Si querés, también puedo dejarte una versión más "profesional" del README con:
-
-- badges de tecnologías
-- capturas de pantalla
-- sección de screenshots
-- tabla de funcionalidades
-- instrucciones para SQL Server Express con autenticación de Windows
-- una versión en inglés
+Trabajo práctico finalizado sobre listado y alta de alumnos a materias utilizando C#, WinForms y SQL Server.
