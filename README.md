@@ -10,11 +10,11 @@
 
 </div>
 
-Sistema de gestión universitaria desarrollado en C# con Microsoft .NET Framework 4.8, utilizando WinForms y conexión a una base de datos SQL Server. Este proyecto fue realizado como Trabajo Práctico N°2 para el manejo de alumnos y materias, con la posibilidad de listar registros, seleccionar datos desde grillas y registrar inscripciones.
+Sistema de gestión universitaria desarrollado en C# con Microsoft .NET Framework 4.8, utilizando WinForms y una base de datos SQL Server. Este proyecto fue realizado como Trabajo Práctico N°2 para gestionar alumnos, materias, inscripciones y estados académicos.
 
 ## Descripción general
 
-La aplicación permite administrar la relación entre alumnos y materias dentro de una universidad. A través de una interfaz gráfica, el usuario puede:
+La aplicación permite:
 
 - listar alumnos
 - listar materias
@@ -23,7 +23,7 @@ La aplicación permite administrar la relación entre alumnos y materias dentro 
 - cargar los datos en los `TextBox`
 - registrar la inscripción en la base de datos
 - actualizar la grilla de registros
-- manejar errores de la base de datos con mensajes visibles
+- manejar errores de SQL Server con mensajes visibles para el usuario
 
 ## Objetivos del trabajo práctico
 
@@ -71,12 +71,35 @@ Sistema-Gestion-Universitaria-MSSQL-CS/
 │       ├── Program.cs
 │       ├── Sistema-Gestion-universitaria.csproj
 │       └── Properties/
+├── docs/
+│   ├── Gif-SGU.gif
+│   ├── 01-carga-inicial.png
+│   ├── 02-seleccion-alumno-materia.png
+│   └── 03-error-validacion.png
 ├── .gitignore
 ├── LICENSE
 ├── README.md
 ├── TP2DB1.slnx
 └── .gitattributes
 ```
+
+## Demo en ejecución
+
+![GIF del proyecto corriendo](docs/Gif-SGU.gif)
+
+## Capturas del proyecto
+
+### 1. Carga inicial
+
+![Carga inicial](docs/01-carga-inicial.png)
+
+### 2. Selección de alumno y materia
+
+![Selección de alumno y materia](docs/02-seleccion-alumno-materia.png)
+
+### 3. Error / validación
+
+![Error y validación](docs/03-error-validacion.png)
 
 ## Base de datos
 
@@ -92,7 +115,7 @@ El script SQL con la creación de la base y las tablas está en:
 Database/script_inicial.sql
 ```
 
-Las principales tablas del sistema son:
+Entre las tablas principales del sistema se incluyen:
 
 - `alumno`
 - `materia`
@@ -142,7 +165,7 @@ Antes de ejecutar el proyecto, verificá que tengas instalado:
 2. Se hace doble clic en la grilla de alumnos para cargar el `TextBox` correspondiente.
 3. Se hace doble clic en la grilla de materias para cargar el `TextBox` correspondiente.
 4. Se confirma la inscripción.
-5. El sistema guarda la tupla `alumno + materia + fecha + estado` en la base de datos.
+5. El sistema guarda la relación `alumno + materia + fecha + estado` en la base de datos.
 6. La grilla de alumnos por materia se actualiza.
 
 ## Archivos principales
@@ -153,25 +176,9 @@ Antes de ejecutar el proyecto, verificá que tengas instalado:
 - `TP2DB1/Sistema-Gestion-universitaria/App.config` → configuración de la conexión.
 - `Database/script_inicial.sql` → script de la base de datos.
 
-## Capturas de pantalla recomendadas
-
-Se recomienda guardar 3 imágenes en una carpeta `docs/screenshots/` con estos nombres:
-
-```text
-docs/screenshots/01-carga-inicial.png
-docs/screenshots/02-seleccion-alumno-materia.png
-docs/screenshots/03-error-validacion.png
-```
-
-Descripción:
-
-- `01-carga-inicial.png`: aplicación abriéndose y cargando alumnos y materias.
-- `02-seleccion-alumno-materia.png`: doble clic en alumno y materia para cargar los `TextBox`.
-- `03-error-validacion.png`: popup con un error de validación o conexión.
-
 ## Licencia
 
-Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para más información.
+Este proyecto está bajo la licencia MIT. Consultá el archivo `LICENSE` para más información.
 
 ## Autor
 
