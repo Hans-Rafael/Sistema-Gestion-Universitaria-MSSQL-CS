@@ -282,5 +282,10 @@ namespace Sistema_Gestion_universitaria
         {
 
         }
+
+        private void lblMaterias_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
